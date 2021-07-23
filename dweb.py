@@ -1,0 +1,7 @@
+import os; pnct = os.popen('ipfs pin ls --type=recursive | wc -l'); print("recursive pins: "+pnct.read())
+pinz = os.popen('ipfs pin ls --type=recursive'); hash = pinz.read(); tmp = hash.replace('\n', ' ')
+hazh = tmp.replace(' recursive', ''); cidz = os.popen('ipfs cid base32 '+str(hazh)); tmp = cidz.read()
+base = tmp.replace('\n', ' '); dweb = tmp.split('\n'); dweb.remove('')
+namz = os.popen('ipfs ls '+str(base)); print(namz.read())
+for x in range(len(dweb)): print str('https://'+dweb[x]+'.ipfs.dweb.link')
+os.system('echo; ipfs repo stat -s -H; echo; df -h ~; echo')
