@@ -14,7 +14,7 @@ for cid in cids:
 if ded == 1: exit()
 mp4cid1 = os.popen('ipfs cid base32 '+mp4cid).read().replace('\n', '');
 vttcid1 = os.popen('ipfs cid base32 '+vttcid).read().replace('\n', '');
-mp4url = 'https://'+mp4cid1+'.ipfs.dweb.link/'; vtturl = 'https://'+vttcid1+'.ipfs.dweb.link/'; gat = 'http://127.0.0.1:8814/ipfs/';
+mp4url = 'https://'+mp4cid1+'.ipfs.dweb.link/'; vtturl = 'https://'+vttcid1+'.ipfs.dweb.link/'; gat = 'http://127.0.0.1:8080/ipfs/';
 dur = os.popen('ffprobe -i '+gat+vid+' -v quiet -show_entries format=duration -of csv="p=0"'); sec = float(dur.read().replace('\n', ''))
 res = os.popen('ffprobe -i '+gat+vid+' -v quiet -select_streams v:0 -show_entries stream=width,height -of default=nw=1:nk=1')
 qua = res.read().split('\n'); qua.pop(2); hei = int(qua[1])
